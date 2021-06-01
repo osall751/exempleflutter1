@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lorem/flutter_lorem.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -36,6 +35,7 @@ class Page2 extends StatelessWidget {
                   ],
                 ),
               ),
+              Image.asset("images/img1.jpg"),
               Image.asset("images/img2.jpg"),
               Image.asset("images/img3.jpg"),
               Image.asset("images/img4.jpg")
