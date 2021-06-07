@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projetmastegl/page2.dart';
+import 'package:projetmastegl/page3.dart';
 
 void main() {
   runApp(MaterialApp(

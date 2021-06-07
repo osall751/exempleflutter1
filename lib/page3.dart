@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:projetmastegl/page1.dart';
 
 class Page3 extends StatefulWidget {
   // Page2({Key key}) : super(key: key);
@@ -68,6 +69,22 @@ class _Page3State extends State<Page3> {
                     var b = rand.nextInt(255);
                     coul = Color.fromRGBO(r, g, b, 1);
                   });
+                },
+              ),
+              TextButton(
+                child: Text('Aller à fenêtre n°2'),
+                style: TextButton.styleFrom(
+                  primary: Colors.white,
+                  backgroundColor: Colors.deepOrange,
+                  onSurface: Colors.grey,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return Page1();
+                    }),
+                  );
                 },
               )
             ],
