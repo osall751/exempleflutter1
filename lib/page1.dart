@@ -11,26 +11,38 @@ class Page1 extends StatelessWidget {
       backgroundColor: Colors.green,
       body: buildCorpsPage(context),
       floatingActionButton: buildFloatingActionButton(),
-      bottomNavigationBar: buildBottomNavigationBar(),
+      bottomNavigationBar: buildBottomNavigationBar(context),
       drawer: Drawer(
         child: ListView(),
       ),
     );
   }
 
-  BottomNavigationBar buildBottomNavigationBar() {
+  BottomNavigationBar buildBottomNavigationBar(BuildContext context) {
     return BottomNavigationBar(currentIndex: 1, items: [
       BottomNavigationBarItem(
         label: "Acceuil",
-        icon: IconButton(onPressed: () {}, icon: Icon(Icons.home)),
+        icon: IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, "/");
+            },
+            icon: Icon(Icons.home)),
       ),
       BottomNavigationBarItem(
-        label: "Texte",
-        icon: IconButton(onPressed: () {}, icon: Icon(Icons.ac_unit)),
+        label: "Page 2",
+        icon: IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, "/page2");
+            },
+            icon: Icon(Icons.ac_unit)),
       ),
       BottomNavigationBarItem(
-        label: "Recherche",
-        icon: IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+        label: "Page 3",
+        icon: IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, "/page3");
+            },
+            icon: Icon(Icons.search)),
       )
     ]);
   }
