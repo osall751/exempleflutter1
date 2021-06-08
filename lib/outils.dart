@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Outils {
   static BottomNavigationBar buildBottomNavigationBar(BuildContext context) {
@@ -9,6 +10,8 @@ class Outils {
         label: "Acceuil",
         icon: IconButton(
             onPressed: () {
+              SystemChrome.setPreferredOrientations(
+                  [DeviceOrientation.landscapeLeft]);
               Navigator.pushNamed(context, "/");
             },
             icon: Icon(Icons.home)),
@@ -17,6 +20,8 @@ class Outils {
         label: "Page 2",
         icon: IconButton(
             onPressed: () {
+              SystemChrome.setPreferredOrientations(
+                  [DeviceOrientation.landscapeRight]);
               Navigator.pushNamed(context, "/page2");
             },
             icon: Icon(Icons.ac_unit)),
@@ -25,6 +30,8 @@ class Outils {
         label: "Page 3",
         icon: IconButton(
             onPressed: () {
+              SystemChrome.setPreferredOrientations(
+                  [DeviceOrientation.portraitUp]);
               Navigator.pushNamed(context, "/page3");
             },
             icon: Icon(Icons.search)),

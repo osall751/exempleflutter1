@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:projetmastegl/page1.dart';
 
 import 'outils.dart';
@@ -17,6 +18,10 @@ class _Page3State extends State<Page3> {
   var coul = Color.fromRGBO(255, 255, 255, 1);
   @override
   Widget build(BuildContext context) {
+    // SystemChrome.setPreferredOrientations([
+    //   DeviceOrientation.landscapeRight,
+    //   // DeviceOrientation.portraitUp,
+    // ]);
     return Container(
       child: Scaffold(
         backgroundColor: coul,
