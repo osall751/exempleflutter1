@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'outils.dart';
+
 class Page2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Exemple 2"),
-      ),
+      appBar: Outils.buildAppBar("Page 2"),
+      floatingActionButton: Outils.buildFloatingActionButton(),
+      bottomNavigationBar: Outils.buildBottomNavigationBar(context),
       body: Container(
         child: Container(
           color: Colors.green,

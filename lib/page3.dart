@@ -4,6 +4,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:projetmastegl/page1.dart';
 
+import 'outils.dart';
+
 class Page3 extends StatefulWidget {
   // Page2({Key key}) : super(key: key);
   @override
@@ -18,9 +20,9 @@ class _Page3State extends State<Page3> {
     return Container(
       child: Scaffold(
         backgroundColor: coul,
-        appBar: AppBar(
-          title: Text("Page 3"),
-        ),
+        appBar: Outils.buildAppBar("Page 3"),
+        floatingActionButton: Outils.buildFloatingActionButton(),
+        bottomNavigationBar: Outils.buildBottomNavigationBar(context),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
