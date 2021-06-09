@@ -2,8 +2,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:projetmastegl/page1.dart';
+import 'package:suzane/page1.dart';
 
 import 'outils.dart';
 

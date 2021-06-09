@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
-import 'package:projetmastegl/outils.dart';
+import 'package:suzane/outils.dart';
 
 class Page1 extends StatelessWidget {
   @override
