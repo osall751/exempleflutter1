@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:suzane/personne.dart';
 
 import 'outils.dart';
 
@@ -12,6 +13,18 @@ class ListePersonnes extends StatefulWidget {
 }
 
 class _ListePersonnesState extends State<ListePersonnes> {
+  // List<Personne> maListePersonne;
+  List<Personne> maListePersonne =
+      List<Personne>.filled(250, Personne("", 0, "", ""), growable: true);
+  @override
+  void initState() {
+    super.initState();
+    maListePersonne = List.generate(
+        250,
+        (_) => Personne(donnezMoiUnNom(), donnezMoiUnNumTel(),
+            donnezMoiUnMetier(), donnezMoiUnePhoto()));
+  }
+
   donnezMoiUnNom() {
     var noms = ["SALL", "NDIAYE", "DEME", "GUEYE", "FALL", "DIA", "FAYE"];
     var prenoms = [
@@ -53,19 +66,29 @@ class _ListePersonnesState extends State<ListePersonnes> {
     return Scaffold(
       appBar: Outils.buildAppBar("Liste de Personnes"),
       body: ListView.separated(
-        itemCount: 250,
+        itemCount: maListePersonne.length,
         separatorBuilder: (BuildContext context, int index) => const Divider(
           color: Colors.black,
         ),
         itemBuilder: (BuildContext context, int index) {
+          Personne pers = maListePersonne.elementAt(index);
           return ListTile(
-            title: Text('${donnezMoiUnNom()}'),
+            onTap: () {
+              print("${pers.toString()}");
+            },
+            title: Text('${pers.nom}'),
             tileColor: Colors.amber,
-            subtitle: Text("${donnezMoiUnMetier()} -  ${donnezMoiUnNumTel()}"),
+            subtitle: Text("${pers.metier} -  ${pers.numTel}"),
             leading: CircleAvatar(
-              backgroundImage: NetworkImage(donnezMoiUnePhoto()),
+              backgroundImage: NetworkImage(pers.photo),
             ),
-            trailing: IconButton(onPressed: () {}, icon: Icon(Icons.delete)),
+            trailing: IconButton(
+                onPressed: () {
+                  setState(() {
+                    maListePersonne.removeAt(index);
+                  });
+                },
+                icon: Icon(Icons.delete)),
           );
         },
       ),
