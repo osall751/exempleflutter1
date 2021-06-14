@@ -75,6 +75,7 @@ class _ListePersonnesState extends State<ListePersonnes> {
           return ListTile(
             onTap: () {
               print("${pers.toString()}");
+              afficherDialogue(pers);
             },
             title: Text('${pers.nom}'),
             tileColor: Colors.amber,
@@ -93,6 +94,43 @@ class _ListePersonnesState extends State<ListePersonnes> {
         },
       ),
       bottomNavigationBar: Outils.buildBottomNavigationBar(context),
+    );
+  }
+
+  void afficherDialogue(Personne pers) {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        backgroundColor: Colors.amber,
+        title: const Text('Information sur la personne'),
+        content: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CircleAvatar(
+              backgroundImage: NetworkImage(pers.photo),
+              radius: 100,
+            ),
+            Text(
+              "Nom: ${pers.nom}",
+              style: TextStyle(fontSize: 30),
+            ),
+            Text("Métier: ${pers.metier}", style: TextStyle(fontSize: 30)),
+            Text("Numéro de Téléphone: ${pers.numTel}",
+                style: TextStyle(fontSize: 30)),
+          ],
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.pop(context, 'Cancel'),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, 'OK'),
+            child: const Text('OK'),
+          ),
+        ],
+      ),
     );
   }
 }
