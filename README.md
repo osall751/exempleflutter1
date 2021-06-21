@@ -1,5 +1,6 @@
 # projetmastegl
-
+# Pour utiliser l'API sous chrome 
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --user-data-dir="C://Chrome dev session" --disable-web-security
 A new Flutter project.
 
 ## Getting Started

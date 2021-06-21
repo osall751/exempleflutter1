@@ -81,15 +81,41 @@ class _ListePersonnesState extends State<ListePersonnes> {
             tileColor: Colors.amber,
             subtitle: Text("${pers.metier} -  ${pers.numTel}"),
             leading: CircleAvatar(
+              // radius: 200,
               backgroundImage: NetworkImage(pers.photo),
             ),
-            trailing: IconButton(
-                onPressed: () {
-                  setState(() {
-                    maListePersonne.removeAt(index);
-                  });
-                },
-                icon: Icon(Icons.delete)),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      maListePersonne.removeAt(index);
+                    });
+                  },
+                  icon: Icon(Icons.delete),
+                  color: Colors.red,
+                ),
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      //maListePersonne.removeAt(index);
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return Dialog(
+                            child: Text("data"),
+                          );
+                        },
+                      );
+                    });
+                  },
+                  icon: Icon(Icons.edit),
+                  color: Colors.green,
+                )
+              ],
+            ),
           );
         },
       ),
@@ -104,8 +130,6 @@ class _ListePersonnesState extends State<ListePersonnes> {
         backgroundColor: Colors.amber,
         title: const Text('Information sur la personne'),
         content: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CircleAvatar(
               backgroundImage: NetworkImage(pers.photo),
